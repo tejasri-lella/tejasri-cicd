@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo "Cloning repository..."
                 // Using the explicit 'url' parameter helps avoid the 'null' error
-                git url: 'https://github.com/sunoj979/ci-cd-bcs178.git', branch: 'main'
+                git url: 'https://github.com/tejasri-lella/tejasri-cicd.git', branch: 'main'
             }
         }
         stage('Build Docker Images') {

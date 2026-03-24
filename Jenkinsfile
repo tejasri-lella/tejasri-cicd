@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_USERNAME = 'tejasri06'
-        NAME = 'Tejasri'
+        NAME = 'tejasri'
         ROLL_NUMBER = '2023bcs0166'
 
         IMAGE_FRONTEND = "${DOCKERHUB_USERNAME}/${NAME}_${ROLL_NUMBER}_frontend"

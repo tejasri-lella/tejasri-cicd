@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    .card {
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 320px;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+    h1 {
+        color: #222;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        margin: 12px 0;
+        color: #444;
+    }
+
+    span {
+        font-weight: bold;
+        color: #000;
+    }
+
+    .loading {
+        color: gray;
+        font-size: 14px;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Student Details</h1>
+<p><b>Name:</b> <span id="name">Loading...</span></p>
+<p><b>Roll Number:</b> <span id="roll">Loading...</span></p>
+
+</div>
+
+<script>
+// Automatically use correct host (localhost or VM IP)
+const API_URL = window.location.hostname + ":5000";
+
+fetch(`http://${API_URL}/student-details`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('name').innerText = data.name;
+        document.getElementById('roll').innerText = data.roll_number;
+    })
+    .catch(error => {
+        console.log("Error:", error);
+        document.getElementById('name').innerText = "Error loading data";
+        document.getElementById('name').classList.add("error");
+    });
+</script>
+
+</body>
+</html>
